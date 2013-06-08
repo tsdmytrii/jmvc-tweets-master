@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+    <head>
+        <title>
+            Twitts demo
+        </title>
+        <script type='text/javascript'
+                src='steal/steal.js?components/twitts'>
+        </script>
+        <style type="text/css">
+            #container {
+                border: 1px solid black;
+                width: 400px;
+                height: 250px;
+            }
+            .input {
+                margin-top: 10px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="content">
+            <div > 
+                <table>
+                    <tr> <td><button class="btn reload">  Refresh </button>
+                        </td> <td> <button class="btn closeButton"> Remove all tweets </button>
+                        </td> 
+                        <td>  <input type="text" class="input" id="searchInput" placeholder="Search twit "/> <icon class="icon-search"> </icon> </td>
+                    <td>
+                        <button class="btn searchBtn"> Search </button> 
+                    </td>
+                </table>
+            </div>
+            <br />
+
+            <div id="container">
+            </div>
+        </div>
+    </body>
+</html>

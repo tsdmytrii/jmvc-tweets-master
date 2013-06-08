@@ -1,0 +1,39 @@
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            Date
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Action
+        </th>
+    </tr>
+    </thead>
+    <tbody class="tbody">
+    {{each $data.tweets}}
+
+    <tr class="tr">
+        <td>
+            ${$value.id}
+        </td>
+        <td>
+            ${$value.date}
+        </td>
+        <td>
+            ${$value.description}
+        </td>
+        <td class="td">
+            <button class="delete" data-tweets-id="${$value.id}" href="javascript:void(0)">
+                Delete
+            </button>
+        </td>
+    </tr>
+    {{/each}}
+    </tbody>
+</table>
