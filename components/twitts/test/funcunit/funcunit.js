@@ -6,14 +6,14 @@ steal('components/twitts',
         
         test('delete_single_tweet', function(){
             S.open('http://localhost/jmvc-tweets-master/index.html'); 
-            S.wait(1000)
+            S.wait(500)
             S('.table').visible(function(){
                 for (i = 0; i < S('.table tbody tr').size(); i++) {
                     S('a[data-tweets-id='+i+']').click()
                     S.wait(100)
                 }  
             })
-            S.wait(1000)
+            S.wait(500)
         })
         
         test('table_check', function() {
@@ -21,7 +21,7 @@ steal('components/twitts',
             S('.table').visible(function(){
                 equals(S('.table tbody tr').size(), 5, "there are 5 results in the table")
             })
-            S.wait(1000)
+            S.wait(500)
             S('.reload').click()
             S('.table').visible(function(){
                 equals(S('.table tbody tr').size(), 5, "there are 5 results in the table")
@@ -29,7 +29,6 @@ steal('components/twitts',
         })
 
         test('search_table_check', function(){
-            S.wait(1000)
             S('.input').type("sdf")
             S('.searchBtn').click()
             S.wait(1000)
@@ -45,7 +44,7 @@ steal('components/twitts',
       
         test('clear_table_check', function(){
             S('.closeButton').click(function (){
-                S.wait(1000)
+                S.wait(500)
                 equal(S('.table tbody tr').size(), 0)
             })
         })
