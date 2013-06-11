@@ -89,19 +89,19 @@ steal('jquery',
             '.delete click':function (el, ev) {
                 var tweetsId = el.data('tweets-id');
                 var that = this;
-                if (confirm('Are you sure to delete tweets #' + tweetsId)) {
-                    TweetsModel.deleteTweet(tweetsId, function () {
-                        that.publish('Tweets.deleted', {
-                            id:tweetsId
-                        });
-                    })
-                }
+//                                if (confirm('Are you sure to delete tweets #' + tweetsId)) {
+                TweetsModel.deleteTweet(tweetsId, function () {
+                    that.publish('Tweets.deleted', {
+                        id:tweetsId
+                    });
+                })
+//                            }
             },
             'Tweets.deleted subscribe':function (called, data) {
                 this.deleteTweetsFromDom(data.id)
             },
             'deleteTweetsFromDom':function (id) {
-                $('button[data-tweets-id=' + id + ']').parents('tr').remove();
+                $('a[data-tweets-id=' + id + ']').parents('tr').remove();
 
             }
         });

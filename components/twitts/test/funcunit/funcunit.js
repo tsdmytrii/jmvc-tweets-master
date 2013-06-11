@@ -2,9 +2,22 @@ steal('components/twitts',
     'funcunit', function(){
         module('test of tweets components');
     
-    
+        
+        
+        test('delete_single_tweet', function(){
+            S.open('http://localhost/jmvc-tweets-master/index.html'); 
+            S.wait(1000)
+            S('.table').visible(function(){
+                for (i = 0; i < S('.table tbody tr').size(); i++) {
+                    S('a[data-tweets-id='+i+']').click()
+                    S.wait(100)
+                }  
+            })
+            S.wait(1000)
+        })
+        
         test('table_check', function() {
-            S.open('http://localhost/task/index.html');     
+            S.open('http://localhost/jmvc-tweets-master/index.html');     
             S('.table').visible(function(){
                 equals(S('.table tbody tr').size(), 5, "there are 5 results in the table")
             })
@@ -37,16 +50,8 @@ steal('components/twitts',
             })
         })
         
-        test('delete_single_tweet', function(){
-            S.open('http://localhost/task/index.html'); 
-          S.wait(3000)
-             S('.delete').click()
-            
-        })
-
-
-
-})
+        
+    })
         
         
         
